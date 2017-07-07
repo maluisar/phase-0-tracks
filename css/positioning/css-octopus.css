@@ -1,0 +1,14 @@
+.hat{
+  position:absolute;
+  margin: 3% 39%;
+}
+.octopus{
+  position:absolute;
+  margin: 10% 40%;
+  z-index:-1
+}
+.glasses{
+  position:absolute;
+  margin: 17.7% 43.4%;
+
+}
