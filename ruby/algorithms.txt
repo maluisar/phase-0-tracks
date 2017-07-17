@@ -1,0 +1,18 @@
+#Elevator
+
+1. Ask what floor do you want to go to.
+2. If desired floor minus current floor greater than 0 press up button. Otherwise press down button.
+3. Wait for elavator.
+4. Enter elevator
+5. Press desired floor button.
+6. If current floor equal to desired floor, exit elevator.
+
+#Doggy Potty.
+
+1. If dog asks or following activity is in 30 min from current time or time equal to 11:00am.
+2. Open apartment door and exit.
+3. Turn right and walk until reaching corner.
+4. Stop at 3 meters and wait 5 min. If dog pooped pick it up. Enter through back door and dump in the trash. Else turnaround walk three meeters back turn left walk until meet door. Open enter.
+
+
+
