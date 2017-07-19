@@ -15,16 +15,16 @@ def encrypt(str)
     end
   str_count += 1
   end
-  puts str_actual
+  encrypt = str_actual
 end
 
 #Decrypt
 #1. Create method with a string variable
-#2. Open loop activ euntil reaching the length of a string
+#2. Open loop active until reaching the length of a string
 #3. Create a variable with all the letters of the alphabet
 #4. Look for the index -1 in the alphabet variable
 #5. Add up letters until creating string
-#6 Call method
+#6. Call method
 
 def decrypt(str)
   str_count = 0
@@ -34,7 +34,28 @@ def decrypt(str)
     str_actual += alphabet[alphabet.index(str[str_count])-1]
     str_count += 1
   end
-  puts str_actual
+  decrypt = str_actual
 end
 
+puts decrypt(encrypt("swordfish"))
 
+#It works because the output of the nested method is a string, which is valid as input to the parent method.
+
+# OUR DRIVER CODE
+
+# ask agent if s/he wants to decrypt or encrypt
+puts "Do you want to encrypt or decrypt a password?"
+user_operation = gets.chomp
+
+# ask agent for the password to encrypt/decrypt
+puts "What is your password?"
+user_password = gets.chomp
+
+# print decrypted/encrypte password
+if user_operation == "decrypt"
+  puts decrypt(user_password)
+elsif user_operation == "encrypt"
+  puts encrypt(user_password)
+else
+  puts "Didn't understand"
+end
