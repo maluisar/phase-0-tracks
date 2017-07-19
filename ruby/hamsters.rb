@@ -16,8 +16,6 @@ if age == ""
   age = nil
 end
 
-
-
 puts "Hamster's name is: #{hamster_name}"
 puts "Volume level is: #{volume_level}"
 puts "Fur color is: #{fur_color}"
