@@ -56,7 +56,7 @@ until interviews_count == interviews
     results = "Results inconclusive"
   end
 
-  puts results
+  puts "#{results}. Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 
   interviews_count+=1
 
