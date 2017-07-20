@@ -32,26 +32,32 @@ until interviews_count == interviews
 
   if input_user_garlic == "yes"
     likes_garlic = true
+  else
+    likes_garlic = false
   end
 
   if input_user_insurance == "yes"
     wants_insurance = true
+  else
+    wants_insurance = false
   end
 
   if  user_age_input == (2017-user_year_born)
     right_age = true
+  else
+    right_age = false
   end
 
   if user_name == "Drake Cula" || user_name == "Tu Fang"
     results = "Definitely a vampire"
+  elsif !right_age && !likes_garlic && !wants_insurance
+    results = "Almost certainly a vampire"
   elsif allergies == "sunshine"
     results = "Probably a vampire"
   elsif right_age && (likes_garlic || wants_insurance)
     results = "Probably not a vampire"
   elsif !right_age && (!likes_garlic || !wants_insurance)
     results = "Probably a vampire"
-  elsif !right_age && !likes_garlic && !likes_insurance
-    results = "Almost certainly a vampire"
   else
     results = "Results inconclusive"
   end
