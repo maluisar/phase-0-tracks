@@ -22,6 +22,11 @@ until interviews_count == interviews
   puts "Would you like to enroll in the company’s health insurance?(yes/no)"
   input_user_insurance = gets.chomp
 
+  puts "Enter any allergies you have. Enter done when all allergies are listed"
+    allergies = 0
+    until allergies == "sunshine" || allergies == "done"
+      allergies = gets.chomp
+    end
 
   results = 0
 
@@ -39,6 +44,8 @@ until interviews_count == interviews
 
   if user_name == "Drake Cula" || user_name == "Tu Fang"
     results = "Definitely a vampire"
+  elsif allergies == "sunshine"
+    results = "Probably a vampire"
   elsif right_age && (likes_garlic || wants_insurance)
     results = "Probably not a vampire"
   elsif !right_age && (!likes_garlic || !wants_insurance)
