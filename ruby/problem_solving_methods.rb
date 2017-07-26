@@ -1,3 +1,5 @@
+#Release 0
+
 #1. Create a method with arguments array and integer
 #2. Build in the method that searchs for the integer entered and gives its position
 #3. Add interface for user to enter array and integer to look for
@@ -36,3 +38,55 @@ if arr.include?(x) == true
 else
   puts "your number is not in the array"
 end
+
+
+#Release 1
+
+# 1. Create a Fibonacci array
+# 2. Create a method with one argument
+# 3. Within the method, create a loop that runs until the array equals the argument and adds x elements each one equal to the sum of the previous 2 elements to the array
+# 4. Add user interface to give x
+
+def fib(x)
+  fib = [0,1]
+  index_count = 0
+  until index_count == x - 2
+    fib << (fib[index_count] + fib[index_count + 1])
+    index_count += 1
+  end
+ p fib
+end
+
+#Add user interface
+
+puts "What Fibonacci number do you want?"
+user_fib = gets.chomp.to_i
+fib(user_fib)
+
+#Release 2
+
+#1. Create a method for bubble sort
+#2. Crate a variable for the array length
+#3. Create a condition until letters are no longer changing (list is sorted)
+#4. Swap letters/numbers when not in order
+#5. Print sorted array
+
+def bubble_sort(array)
+  n = array.length
+swap_count=0
+swap=1
+    until swap_count == swap
+    swap_count=swap
+    (n-1).times do |i|
+      if array[i] > array[i+1]
+        array[i], array[i+1] = array[i+1], array[i]
+        swap+=1
+      end
+    end
+  end
+  array
+end
+
+test_array=["a","e","d","b","c","f"]
+
+print bubble_sort(test_array)
