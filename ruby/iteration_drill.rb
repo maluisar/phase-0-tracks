@@ -6,11 +6,17 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # 1. Iterate through the zombie_apocalypse_supplies array using #each,
 # printing each item in the array separated by an asterisk
 # ----
+zombie_apocalypse_supplies.each do |zombie|
+  puts "#{zombie} * "
+end
 
 # 2. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies using #each.
 # For instance: are boots in your list of supplies?
 # ----
+zombie_apocalypse_supplies.each do |zombie|
+  puts "'At' is in #{zombie} = #{zombie.include? 'at'} "
+end
 
 # 3. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
@@ -28,7 +34,7 @@ other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
 
 # Hash Drills
 
-extinct_animals = {
+$extinct_animals = {
   "Passenger Pigeon" => 1914,
   "Tasmanian Tiger" => 1936,
   "Eastern Hare Wallaby" => 1890,
@@ -42,6 +48,7 @@ extinct_animals = {
 # with a dash in between the key and value, and an asterisk between each pair.
 # ----
 
+
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000, using #each.
 # ----
@@ -50,6 +57,10 @@ extinct_animals = {
 # extinct 3 years before the date provided. Update the values in extinct_animals
 # using #each, so they accurately reflect what year the animal went extinct.
 # ----
+$extinct_animals.each do |animal, year|
+  $extinct_animals[animal] = year.to_i-3
+end
+p $extinct_animals
 
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Build a method  using #each that checks if an animal is in the hash and returns true/false.
@@ -60,6 +71,20 @@ extinct_animals = {
 # "Saiga Antelope"
 # Driver code example: is_extinct?(extinct_animals, "Andean Cat")
 # ----
+
+def extinction_verification(animal_input)
+  extinction = []
+  $extinct_animals.each do |animal, year|
+    extinction.push(animal.include? animal_input)
+  end
+  extinction.include? true
+end
+
+#try "Andean Cat"
+puts "Andean Cat extinction = #{extinction_verification("Andean Cat")}"
+#try "Dodo"
+puts "Dodo extinction = #{extinction_verification("Dodo")}"
+
 
 # 5. We just found out that the Passenger Pigeon is actually not extinct!
 # Remove them from extinct_animals and return the key value pair as a two item array.
