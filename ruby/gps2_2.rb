@@ -27,14 +27,24 @@
 # steps: Iterate thorugh the hash to print each item with quantities using #each
 # output: printed list with quantities
 
-
-def new_list(str)
+new_hash = {}
+def new_list(str, hash)
   new_list = str.split(" ")
-  new_hash = {}
   new_list.each do |items|
-    new_hash [items] = 1
+    hash[items] = 1
   end
-p new_hash
+    hash
 end
 
-new_list("banana apple orange lime")
+def add_item(new_hash, item, quantity)
+  new_hash[item] = quantity
+  new_hash
+end
+
+
+new_list("banana apple orange lime", new_hash)
+add_item(new_hash, "pear", 3)
+
+puts new_hash
+
+
