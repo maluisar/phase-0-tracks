@@ -33,7 +33,7 @@ def new_list(str, list)
   str.split(" ").each { |items| list[items] = 1 }
 end
 
-def add_item(list, item, quantity)
+def add_item(list, item, quantity = 1)
   list[item] = quantity
 end
 
@@ -50,12 +50,22 @@ def look_pretty(list)
   list.each { |item, quantity| puts "#{item}: #{quantity}" }
 end
 
-
-
 new_list("banana apple orange lime", grocery_list)
-add_item(grocery_list, "pear", 3)
+add_item(grocery_list, "pear")
 remove_item(grocery_list, "banana")
 add_item(grocery_list, "apple", 5)
 look_pretty(grocery_list)
 
 
+# What did you learn about pseudocode from working on this challenge?
+# => It really makes the actual coding easier and more organized
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# => We didn't even consider using an array for the long run because of the quantity value that we would have had to store in an array as a string
+# What does a method return?
+# => The last line of code
+# What kind of things can you pass into methods as arguments?
+# => methods, values, hashes, arrays, variables
+# How can you pass information between methods?
+# => Using the arguments, using global variables
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# => Passing information between methods was definitely something that was a little confusing.
