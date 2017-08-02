@@ -27,32 +27,35 @@
 # steps: Iterate thorugh the hash to print each item with quantities using #each
 # output: printed list with quantities
 
-new_hash = {}
-def new_list(str, hash)
-  new_list = str.split(" ")
-  new_list.each do |items|
-    hash[items] = 1
-  end
-    hash
+grocery_list = {}
+
+def new_list(str, list)
+  str.split(" ").each { |items| list[items] = 1 }
 end
 
-def add_item(new_hash, item, quantity)
-  new_hash[item] = quantity
-  new_hash
+def add_item(list, item, quantity)
+  list[item] = quantity
 end
 
-def remove_item(new_hash, item)
-  new_hash.delete(item)
-  new_hash
+def remove_item(list, item)
+  list.delete(item)
+end
+
+# def update_quantity(list, item, quantity)
+#   list[item] = quantity
+# end
+
+def look_pretty(list)
+  puts "Here is your grocery list:"
+  list.each { |item, quantity| puts "#{item}: #{quantity}" }
 end
 
 
 
-
-new_list("banana apple orange lime", new_hash)
-add_item(new_hash, "pear", 3)
-remove_item(new_hash, "banana")
-
-puts new_hash
+new_list("banana apple orange lime", grocery_list)
+add_item(grocery_list, "pear", 3)
+remove_item(grocery_list, "banana")
+add_item(grocery_list, "apple", 5)
+look_pretty(grocery_list)
 
 
