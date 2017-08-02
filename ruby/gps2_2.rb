@@ -41,9 +41,17 @@ def add_item(new_hash, item, quantity)
   new_hash
 end
 
+def remove_item(new_hash, item)
+  new_hash.delete(item)
+  new_hash
+end
+
+
+
 
 new_list("banana apple orange lime", new_hash)
 add_item(new_hash, "pear", 3)
+remove_item(new_hash, "banana")
 
 puts new_hash
 
