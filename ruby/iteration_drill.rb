@@ -21,6 +21,13 @@ end
 # 3. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
 # leaving only 5, using #each.
+
+# zombie_apocalypse_supplies.each do |zombie|
+#   if zombie.index > 4
+#     zombie_apocalypse_supplies.delete(zombie)
+#   end
+# end
+
 # ----
 
 # 4. You found another survivor! This means you can combine your supplies.
