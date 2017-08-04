@@ -1,6 +1,6 @@
 class Santa
 
-attr_reader :age, :ethnicity
+attr_reader :age, :ethnicity, :raindeer_ranking
 attr_accessor :gender
 
   def speak
@@ -11,12 +11,14 @@ attr_accessor :gender
     print "That was a good #{cookie}!"
   end
 
-  def initialize(gender, ethnicity)
+  def initialize
     puts "Initializing Santa instance ..."
-    @gender = gender
-    @ethnicity = ethnicity
-    @raindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @gender_array = ["Female","Male","Bi-gender","Gender Fluid","Unknown"]
+    @ethnicity_array = ["Hispanic-Latino", "White-European", "Native American", "Asian", "Black-African American", "Other"]
+    @gender = @gender_array[rand(@gender_array.length-1)]
+    @ethnicity = @ethnicity_array[rand(@ethnicity_array.length-1)]
+    @raindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"].shuffle
+    @age = rand(140)
   end
 
   def celebrate_birthday
@@ -47,22 +49,27 @@ attr_accessor :gender
 
 end
 
+# santas = []
+# santas << Santa.new("agender", "black")
+# santas << Santa.new("female", "Latino")
+# santas << Santa.new("bigender", "white")
+# santas << Santa.new("male", "Japanese")
+# santas << Santa.new("female", "prefer not to say")
+# santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
+# santas << Santa.new("N/A", "N/A")
+# santas << Santa.new("female","Mexican")
+# santas << Santa.new("prefer not to say","Cuban")
+
 santas = []
-santas << Santa.new("agender", "black")
-santas << Santa.new("female", "Latino")
-santas << Santa.new("bigender", "white")
-santas << Santa.new("male", "Japanese")
-santas << Santa.new("female", "prefer not to say")
-santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
-santas << Santa.new("N/A", "N/A")
-santas << Santa.new("female","Mexican")
-santas << Santa.new("prefer not to say","Cuban")
+
+1000.times do
+  santas <<santa = Santa.new
+end
 
 #Driver Code
 
-
-p santas[1].gender
-santas[1].gender = "unknown"
-p santas[1].gender
-p santas[1].age
+p santas[0].gender
+p santas[0].age
+p santas[0].ethnicity
+p santas[0].raindeer_ranking
 
