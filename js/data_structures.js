@@ -8,8 +8,13 @@ names.push("Tracy");
 
 var horses = {};
 
-for (var i=0; i < colors.length; i++){
+if (colors.length == names.length){
+  for (var i=0; i < colors.length; i++){
   horses[names[i]] = colors[i];
+  }
+}
+else {
+  console.log("Names and Colors don't have the same length")
 }
 
 //Car constructor
@@ -26,6 +31,7 @@ function Car(color, year, maxSpeed) {
 }
 
 //Driver Code
+
 
 console.log(colors);
 console.log(names);
