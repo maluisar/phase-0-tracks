@@ -1,0 +1,38 @@
+1. Display the information in one table (either table is fine).
+
+sqlite> SELECT * FROM customers;
+1|Jessica Carter|true|35|jc@yahoo.com
+2|Emilio Rocha|false|38|emrocha@gmail.com
+3|Andres Cevallos|true|29|andresc@hotmail.com
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+Andres opted out from our mailing list :(
+
+sqlite> UPDATE customers SET email_list="false" WHERE name="Andres Cevallos";
+sqlite> SELECT * FROM customers;
+1|Jessica Carter|true|35|jc@yahoo.com
+2|Emilio Rocha|false|38|emrocha@gmail.com
+3|Andres Cevallos|false|29|andresc@hotmail.com
+
+3. Display the information in both tables using one query.
+
+sqlite> SELECT * FROM orders, customers WHERE customers.id = orders.customer_id;
+1|2017-05-02|106|1|1|Jessica Carter|true|35|jc@yahoo.com
+2|2017-08-12|345|2|2|Emilio Rocha|false|38|emrocha@gmail.com
+3|2017-08-12|124|3|3|Andres Cevallos|false|29|andresc@hotmail.com
+4|2017-08-11|100|1|1|Jessica Carter|true|35|jc@yahoo.com
+5|2017-07-05|345|2|2|Emilio Rocha|false|38|emrocha@gmail.com
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+sqlite> SELECT orders.date, customers.name, orders.amount FROM orders JOIN customers ON orders.customer_id = customers.id;
+2017-05-02|Jessica Carter|106
+2017-08-12|Emilio Rocha|345
+2017-08-12|Andres Cevallos|124
+2017-08-11|Jessica Carter|100
+2017-07-05|Emilio Rocha|345
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+
