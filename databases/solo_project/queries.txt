@@ -1,3 +1,5 @@
+Release 2
+
 1. Display the information in one table (either table is fine).
 
 sqlite> SELECT * FROM customers;
@@ -35,4 +37,29 @@ sqlite> SELECT orders.date, customers.name, orders.amount FROM orders JOIN custo
 
 5. Delete an item that meets some condition (you can choose a condition that makes sense).
 
+We wont target customers over 35 anymore... 
 
+sqlite> DELETE FROM customers WHERE age>35;
+sqlite> SELECT * FROM customers;
+1|Jessica Carter|true|35|jc@yahoo.com
+3|Andres Cevallos|false|29|andresc@hotmail.com
+
+Release 3
+
+Try a few different joins in your database, and record the commands and the output in queries.txt
+
+LEFT
+
+sqlite> SELECT customers.name, orders.amount FROM orders LEFT JOIN customers ON orders.customer_id = customers.id;
+Jessica Carter|106
+|345
+Andres Cevallos|124
+Jessica Carter|100
+|345
+
+RIGHT (but really left - displayed an error that RIGHT is not supported)
+
+sqlite> SELECT customers.name, orders.amount FROM customers LEFT JOIN orders ON orders.customer_id = customers.id;
+Jessica Carter|100
+Jessica Carter|106
+Andres Cevallos|124
