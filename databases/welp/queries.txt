@@ -1,0 +1,14 @@
+
+1. Release 2 - Join three tables:
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.review, reviews.comment FROM reviews JOIN users ON users.id = reviews.user_id JOIN businesses ON  businesses.id = reviews.business_id;
+
+Holly|Berry|Lotus Yoga|5|Very challenging class, but in a good way
+Angela|Jolie|The Beagle Night Club|4|Good beer selection
+Steven|Wonder|Sushi World|5|Very fresh fish
+Steven|Wonder|Lotus Yoga|5|Very cool studio
+
+2. Release 2 - Show only reviews for one business:
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.review, reviews.comment FROM reviews JOIN users ON users.id = reviews.user_id JOIN businesses ON  businesses.id = reviews.business_id WHERE businesses.name = "Lotus Yoga";
+
+Holly|Berry|Lotus Yoga|5|Very challenging class, but in a good way
+Steven|Wonder|Lotus Yoga|5|Very cool studio
