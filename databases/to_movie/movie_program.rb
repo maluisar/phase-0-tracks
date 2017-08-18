@@ -38,7 +38,10 @@ def rate_item(db, id, rating)
 end
 
 def mark_as_seen(db, id)
-  db.execute("UPDATE items SET seen=true WHERE id=#{id}")
+  db.execute(<<-SQL
+  UPDATE items SET seen="true" WHERE id=#{id}
+  SQL
+  )
 end
 
 #add_item(db, "books","The design of everyday thinking", "Don Norman", 14)
