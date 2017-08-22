@@ -7,7 +7,6 @@ The to-movie program will be a movie/tvshow/book tracker for when I am in the mo
 The program will:
 1. Allow user to enter new books, movies or TV Shows
 2. Allow user to mark seen movies or read books
-3. Allow user to rate the movies seen and comment on them
 
 Pseudocode:
 
@@ -29,12 +28,12 @@ require 'sqlite3'
 db = SQLite3::Database.open "to_movie.db"
 
 
-def add_item(db, type, name, author, genre, rating=nil, comment=nil)
-  db.execute("INSERT INTO items (type, name, author, genre_id, seen, rating, comment) VALUES (?, ?, ?, ?, ?, ?, ?)", [type, name, author, genre, "false", rating, comment])
+def add_item(db, type, name, author, genre)
+  db.execute("INSERT INTO items (type, name, author, genre_id, seen) VALUES (?, ?, ?, ?, ?)", [type, name, author, genre, "false"])
 end
 
-def rate_item(db, id, rating)
-  db.execute("UPDATE items SET rating=#{rating} WHERE id=#{id}")
+def add_item(db, array)
+  db.execute("INSERT INTO items (type, name, author, genre_id, seen) VALUES (?,?,?,?,?)", array[0], array[1], array[2], array[3], "false")
 end
 
 def mark_as_seen(db, id)
@@ -44,8 +43,58 @@ def mark_as_seen(db, id)
   )
 end
 
-#add_item(db, "books","The design of everyday thinking", "Don Norman", 14)
-rate_item(db, 2, 5)
-mark_as_seen(db, 2)
+def create_array
+  item_array = []
+  puts "Type:"
+  item_array << gets.chomp
+  puts "Title:"
+  item_array << gets.chomp
+  puts "Author:"
+  item_array << gets.chomp
+  puts "Genre:"
+  item_array << gets.chomp
 
-puts db.execute("SELECT * FROM items")
+  item_array
+end
+
+
+
+
+# add_item(db, ["book","The design of everyday thinking", "Don Norman", 14])
+# mark_as_seen(db, 2)
+
+#puts "Welcome to your movie tracker"
+
+exit = false
+
+while exit == false
+  puts ""
+  puts "Select your activity by number"
+  puts "1 - Add an item"
+  puts "2 - Mark as seen"
+  puts "3 - Dsiplay my lists"
+  puts "4 - Exit"
+  activity = gets.chomp
+
+  if activity == "1"
+    add_item(db, create_array)
+  elsif activity == "2"
+    puts "item id to mark as seen?"
+      input_id = gets.chomp
+    mark_as_seen(db, input_id)
+  elsif activity == "3"
+    table = db.execute("SELECT * FROM items")
+    table.each do |array|
+      puts ""
+      array.each do |column|
+        print "#{column} - "
+        end
+    end
+  elsif activity == "4"
+    exit = true
+  end
+end
+
+
+
+
