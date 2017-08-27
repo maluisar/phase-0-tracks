@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practice JQuery</title>
+</head>
+<body>
+
+  <h1>Practice JQuery</h1>
+  <div id = "box1">
+    <h2>Practice 1</h2>
+    <p> Some practicing</p>
+  </div>
+  <div id= "box2">
+    <h2>Practice 2</h2>
+    <p>Some practicing</p>
+  </div>
+  <div id= "box3">
+    <h2>Practice 3 </h2>
+    <p>Some practicing</p>
+  </div>
+
+<script src= "jquery-3.2.1.js"></script>
+
+<script>
+
+  $(function() {
+     $("body").css({
+        fontFamily:"Helvetica"
+     });
+
+     $("div").css({
+        border: 'black',
+        borderWidth: '2px',
+        borderStyle: 'solid',
+        margin: '10px',
+        width: '150px',
+        padding: '20px',
+        opacity: '0.5',
+        color: 'white',
+        background: 'black'
+     });
+
+     $("#box1").on('click', function() {
+        $("#box1").slideToggle(600);
+     });
+
+     $("#box2").on('mouseover', function() {
+        $("#box2").css({opacity: "1"});
+      });
+
+  });
+
+</script>
+
+</body>
+</html>
