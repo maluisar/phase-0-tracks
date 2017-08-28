@@ -24,4 +24,8 @@ post '/students' do
   redirect '/'
 end
 
-# add static resources
+get '/test' do
+  students = db.execute("SELECT * FROM students")
+  @first_name = stuednts[rand(0,20)][name]
+  erb :test
+end
